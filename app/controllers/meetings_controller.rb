@@ -9,6 +9,7 @@ class MeetingsController < ApplicationController
   end
 
   def new
+    @courses = Course.all
   end
 
   def create
@@ -21,6 +22,8 @@ class MeetingsController < ApplicationController
     else
       render 'new'
     end
+
+    @courses = Course.all
   end
 
   def edit
