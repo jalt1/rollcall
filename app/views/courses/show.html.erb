@@ -15,7 +15,7 @@
   <dt>Meetings</dt>
   <dd>
     <% Meeting.where(:course_id => @course.id).each do |meeting|%>
-    <%= meeting.held_on %>
+    <%= meeting.held_on %></br>
     <%end %>
   </dd>
 

@@ -7,7 +7,8 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Meeting</th>
+      <th>Meeting Number</th>
+      <th>Meeting Held On</th>
       <th>Student</th>
       <th></th>
       <th></th>
@@ -18,8 +19,9 @@
   <tbody>
     <% @attendances.each do |attendance| %>
       <tr>
-        <td><%= attendance.meeting_id %></td>
-        <td><%= attendance.student_id %></td>
+        <td><%= Meeting.find_by(:id => attendance.meeting_id).id %></td>
+        <td><%= Meeting.find_by(:id => attendance.meeting_id).held_on %></td>
+        <td><%= "#{Student.find_by(:id => attendance.student_id).first_name} #{Student.find_by(:id => attendance.student_id).last_name}" %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, attendance_url(attendance), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_attendance_url(attendance), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, attendance_url(attendance), method: 'delete', data: { confirm: "Do you really want to delete this attendance?" }, class: 'btn btn-danger' %></td>

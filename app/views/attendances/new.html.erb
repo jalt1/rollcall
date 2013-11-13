@@ -6,15 +6,23 @@
   <div class="form-group">
     <%= label_tag :meeting_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= number_field_tag :meeting_id, nil, class: 'form-control' %>
+        <select name="meeting_id">
+      <% Meeting.all.each do |ind_meeting|%>
+        <option value="<%= ind_meeting[:id] %>"><%= "#{Course.find_by(:id => ind_meeting.course_id).department} #{ Course.find_by(:id => ind_meeting.course_id).number} #{Course.find_by(:id => ind_meeting.course_id).title} #{ind_meeting[:held_on]}" %></option>
+      <% end %>
+        </select>
     </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
-    <div class="col-md-6">
-      <%= number_field_tag :student_id, nil, class: 'form-control' %>
-    </div>
+      <div class="col-md-6">
+        <select name="student_id">
+      <% Student.all.each do |ind_student|%>
+        <option value="<%= ind_student[:id] %>"><%= "#{ind_student[:first_name]} #{ind_student[:last_name]}" %></option>
+      <% end %>
+        </select>
+      </div>
   </div>
 
   <div class="form-group">

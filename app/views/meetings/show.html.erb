@@ -10,4 +10,8 @@
   <dd><%= "#{Course.find_by(:id => @meeting.course_id).department} #{ Course.find_by(:id => @meeting.course_id).number} #{Course.find_by(:id => @meeting.course_id).title}"%>
   </dd>
 
+    <dt>Students Attended</dt>
+  <dd><%= "#{Student.find_by(:id => Attendance.find_by(:meeting_id => params[:id]).student_id).first_name} #{Student.find_by(:id => Attendance.find_by(:meeting_id => params[:id]).student_id).last_name}"%>
+  </dd>
+
 </dl>
