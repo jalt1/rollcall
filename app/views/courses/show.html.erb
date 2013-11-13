@@ -12,4 +12,13 @@
   <dt>Title</dt>
   <dd><%= @course.title %></dd>
 
+  <dt>Meetings</dt>
+  <dd>
+    <% Meeting.where(:course_id => @course.id).each do |meeting|%>
+    <%= meeting.held_on %>
+    <%end %>
+  </dd>
+
 </dl>
+
+

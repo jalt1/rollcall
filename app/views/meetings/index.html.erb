@@ -19,7 +19,7 @@
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.held_on %></td>
-        <td><%= meeting.course_id %></td>
+        <td><%= "#{Course.find_by(:id => meeting.course_id).department} #{ Course.find_by(:id => meeting.course_id).number} #{Course.find_by(:id => meeting.course_id).title}"%></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, meeting_url(meeting), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_meeting_url(meeting), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, meeting_url(meeting), method: 'delete', data: { confirm: "Do you really want to delete this meeting?" }, class: 'btn btn-danger' %></td>
