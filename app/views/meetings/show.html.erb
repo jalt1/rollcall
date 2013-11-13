@@ -11,8 +11,8 @@
   </dd>
 
     <dt>Students Attended</dt>
-    <dd><%Student.where(:id => Attendance.find_by(:meeting_id => params[:id]).student_id).each do |student|%>
-      <%= "#{student.first_name} #{student.last_name}"%>
+    <dd><%Student.where(:id => Attendance.where(:meeting_id => params[:id])).each do |student|%>
+      <%= "#{student.first_name} #{student.last_name}"%></br>
     <% end %>
     </dd>
 
