@@ -7,6 +7,7 @@
   <dd><%= @meeting.held_on %></dd>
 
   <dt>Course</dt>
-  <dd><%= @meeting.course_id %></dd>
+  <dd><%= "#{Course.find_by(:id => @meeting.course_id).department} #{ Course.find_by(:id => @meeting.course_id).number} #{Course.find_by(:id => @meeting.course_id).title}"%>
+  </dd>
 
 </dl>

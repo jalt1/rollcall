@@ -13,9 +13,9 @@
   <div class="form-group">
     <%= label_tag :course_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-        <select name="select">
-      <% @courses.each do |ind_course|%>
-        <option value=<% ind_course[:id] %>><%= "#{ind_course[:department]} #{ind_course[:number]} #{ind_course[:title]} " %></option>
+        <select name="course_id">
+      <% Course.all.each do |ind_course|%>
+        <option value="<%= ind_course[:id] %>"><%= "#{ind_course[:department]} #{ind_course[:number]} #{ind_course[:title]} " %></option>
       <% end %>
         </select>
 
